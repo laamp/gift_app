@@ -7,5 +7,6 @@ postgres -- 14.3
 
 ### Setup
 1. `bundle install`
+1. `bundle exec rails db:setup`
 1. `bundle exec rails db:migrate`
-1. start backend `bin/rails server` (running @ localhost:3000)
+1. start backend `bundle exec rails server` (running @ localhost:3000)

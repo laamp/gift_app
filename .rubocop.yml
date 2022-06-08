@@ -8,3 +8,12 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://docs.rubocop.org/rubocop/configuration
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/puma.rb'
+    - 'db/schema.rb'
+
+Style/Documentation:
+  Enabled: false

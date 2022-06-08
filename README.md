@@ -1,9 +1,9 @@
 # Gift App
 
 ### Dependencies
-ruby -- 3.1.2
-rails -- 7.0.3
-postgres -- 14.3
+- ruby -- 3.1.2 (marked as at least 3.1.0 for CI configuration)
+- rails -- 7.0.3
+- postgres -- 14.3
 
 ### Setup
 1. `bundle install`

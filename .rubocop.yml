@@ -9,6 +9,9 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 
+inherit_gem:
+  rubocop-discourse: default.yml
+
 AllCops:
   NewCops: enable
   Exclude:

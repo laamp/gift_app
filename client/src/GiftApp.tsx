@@ -1,8 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-const GiftApp = () => {
+interface Props {
+  tsTest: string;
+}
+
+const GiftApp = (props: Props) => {
   const [test, setTest] = React.useState('not run yet');
+  console.log(props);
 
   const makeRequest = () => {
     axios
@@ -12,7 +17,7 @@ const GiftApp = () => {
       })
       .catch(() => {
         setTest('The request has failed.');
-      })
+      });
   };
 
   return (

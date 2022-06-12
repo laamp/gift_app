@@ -11,9 +11,17 @@ module.exports = {
   devServer: {
     port: "3000",
     static: ["./client/public"],
-    open: false,
+    open: true,
     hot: true,
-    liveReload: true
+    liveReload: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   devtool: 'inline-source-map',
   resolve: {

@@ -1,4 +1,5 @@
 var path = require('path');
+var dotenv = require('dotenv').config();
 
 module.exports = {
   mode: 'development',
@@ -9,14 +10,14 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    port: "3000",
+    port: process.env.WEBPACK_PORT,
     static: ["./client/public"],
-    open: true,
+    open: false,
     hot: true,
     liveReload: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: `http://localhost:${process.env.PORT}`,
         pathRewrite: {
           '^/api': ''
         }

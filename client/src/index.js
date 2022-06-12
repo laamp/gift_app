@@ -1,7 +1,13 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
+import { createRoot } from 'react-dom/client';
+import GiftApp from './GiftApp';
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<App />, document.getElementById('root'));
+  const container = document.getElementById('AppContainer');
+  const root = createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <GiftApp />
+    </React.StrictMode>
+  );
 });

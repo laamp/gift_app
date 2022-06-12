@@ -33,3 +33,10 @@
 
 # environment variables
 .env
+
+# webpack generated files
+bundle.js
+bundle.js.map
+
+# Apple junk
+.DS_Store

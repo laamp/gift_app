@@ -1,10 +1,9 @@
 var path = require('path');
 
 module.exports = {
-  context: __dirname,
   mode: 'development',
   target: 'web',
-  entry: './client/index.js',
+  entry: './client/src/index.js',
   output: {
     path: path.resolve(__dirname, 'client', 'public'),
     filename: 'bundle.js',
@@ -12,7 +11,7 @@ module.exports = {
   devServer: {
     port: "3000",
     static: ["./client/public"],
-    open: true,
+    open: false,
     hot: true,
     liveReload: true
   },
@@ -26,11 +25,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          query: {
-            presets: ['@babel/env', '@babel/react']
-            plugins: ['@babel/plugin-transform-runtime']
-          }
+          loader: 'babel-loader'
         }
       }
     ]

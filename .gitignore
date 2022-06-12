@@ -30,3 +30,6 @@
 
 # stuff installed by yarn
 /node_modules
+
+# environment variables
+.env

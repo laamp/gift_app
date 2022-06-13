@@ -4,14 +4,14 @@ var dotenv = require('dotenv').config();
 module.exports = {
   mode: 'development',
   target: 'web',
-  entry: './client/src/index.js',
+  entry: './client/src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'client', 'public'),
     filename: 'bundle.js',
   },
   devServer: {
     port: process.env.WEBPACK_PORT,
-    static: ["./client/public"],
+    static: ['./client/public'],
     open: false,
     hot: true,
     liveReload: true,
@@ -19,24 +19,22 @@ module.exports = {
       '/api': {
         target: `http://localhost:${process.env.PORT}`,
         pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+          '^/api': '',
+        },
+      },
+    },
   },
   devtool: 'inline-source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '*']
+    extensions: ['.tsx', '.ts'],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
-  }
+        use: 'ts-loader',
+      },
+    ],
+  },
 };

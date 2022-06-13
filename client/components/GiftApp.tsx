@@ -1,15 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
-interface Props {
-  tsTest: string;
-}
+const GiftApp = () => {
+  const [test, setTest] = React.useState('');
 
-const GiftApp = (props: Props) => {
-  const [test, setTest] = React.useState('not run yet');
-  console.log(props);
-
-  const makeRequest = () => {
+  const makeRequest = React.useCallback(() => {
     axios
       .get('/api/hello_world')
       .then((response) => {
@@ -18,7 +13,7 @@ const GiftApp = (props: Props) => {
       .catch(() => {
         setTest('The request has failed.');
       });
-  };
+  }, []);
 
   return (
     <div className='GiftApp'>

@@ -33,7 +33,12 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: 'babel-loader',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: ['source-map-loader'],
+        enforce: 'pre',
       },
     ],
   },

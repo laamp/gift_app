@@ -11,7 +11,7 @@ module.exports = {
   },
   devServer: {
     port: process.env.WEBPACK_PORT,
-    static: ['./client/public'],
+    static: './client/public',
     open: false,
     hot: true,
     liveReload: true,
@@ -31,14 +31,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.m?[jt]sx$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
-        test: /\.(js|jsx)$/,
-        use: ['source-map-loader'],
-        enforce: 'pre',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }],
+              '@babel/preset-typescript',
+            ],
+          },
+        },
       },
     ],
   },

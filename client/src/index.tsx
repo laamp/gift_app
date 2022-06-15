@@ -7,5 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!container) return;
 
   const root = createRoot(container);
-  root.render(<GiftApp />);
+  root.render(
+    <React.StrictMode>
+      <GiftApp />
+    </React.StrictMode>
+  );
 });

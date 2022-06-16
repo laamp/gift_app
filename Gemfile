@@ -6,12 +6,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 3.1.0'
 
+gem 'bcrypt'
 gem 'bootsnap', require: false
+gem 'jwt'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3'
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
@@ -23,6 +23,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'rubocop'
   gem 'solargraph'
 end
 

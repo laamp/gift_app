@@ -1,6 +1,6 @@
 # Gift App
 
-[![Ruby on Rails CI](https://github.com/laamp/gift_app/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/laamp/gift_app/actions/workflows/rubyonrails.yml)
+[![Ruby on Rails CI](https://github.com/laamp/gift_app/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/laamp/gift_app/actions/workflows/rubyonrails.yml) [![NodeJS with Webpack](https://github.com/laamp/gift_app/actions/workflows/webpack.yml/badge.svg)](https://github.com/laamp/gift_app/actions/workflows/webpack.yml)
 
 ### Dependencies
 

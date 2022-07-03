@@ -10,4 +10,6 @@
 
 ### Steps to run
 
-TBD
+1. bundle install
+1. yarn install
+1. foreman start

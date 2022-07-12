@@ -1,5 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+
+import { store } from 'store';
 import GiftApp from 'components/GiftApp';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
-      <GiftApp />
+      <Provider store={store}>
+        <GiftApp />
+      </Provider>
     </React.StrictMode>
   );
 });

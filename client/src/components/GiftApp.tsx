@@ -1,12 +1,16 @@
 import React from 'react';
 
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { increment } from 'modules/session/sessionSlice';
+
 const GiftApp = () => {
-  const [count, setCount] = React.useState(1);
+  const count = useAppSelector((state) => state.session.testValue);
+  const dispatch = useAppDispatch();
 
   return (
     <div className='GiftApp'>
-      <h1 onClick={() => setCount(count + 1)}>Gift App ✨</h1>
-      <p>Count: {count}</p>
+      <h1>Gift App ✨</h1>
+      <p onClick={() => dispatch(increment())}>Count: {count}</p>
     </div>
   );
 };

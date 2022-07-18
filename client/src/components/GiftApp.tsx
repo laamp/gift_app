@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import { useAppDispatch } from 'hooks';
-import { loginUser } from 'modules/session/sessionSlice';
+import { loginAction } from 'modules/session';
 
 const GiftApp = () => {
   const dispatch = useAppDispatch();
@@ -9,15 +9,15 @@ const GiftApp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const submitLoginForm = (e: FormEvent) => {
+    e.preventDefault();
+    dispatch(loginAction({ email, password }));
+  };
+
   return (
     <div className='GiftApp'>
       <h1>Gift App ✨</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log('Form submitted with', email, password);
-          dispatch(loginUser({ email, password }));
-        }}>
+      <form onSubmit={submitLoginForm}>
         <label htmlFor='email'>Email</label>
         <input
           id='email'

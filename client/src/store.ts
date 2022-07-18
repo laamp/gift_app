@@ -1,11 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 
-import sessionReducer from 'modules/session/sessionSlice';
+import rootReducer from 'reducer';
 
 export const store = configureStore({
-  reducer: {
-    session: sessionReducer,
-  },
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

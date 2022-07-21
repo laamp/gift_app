@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { startLoading } from 'modules/currentState';
+import { startLoading, endLoading } from 'modules/ui';
 import { loginRequest } from './requests';
 
 export const loginAction = createAsyncThunk(
@@ -10,7 +10,19 @@ export const loginAction = createAsyncThunk(
     thunkApi
   ) => {
     thunkApi.dispatch(startLoading());
-    const response = await loginRequest(email, password);
-    return response.data;
+
+    const response = await loginRequest(email, password)
+      .then((success) => {
+        console.log('first thing happened. success', success);
+        return success.data;
+      })
+      .catch((error) => {
+        console.log('second thing happened. error', error);
+        return error;
+      });
+
+    thunkApi.dispatch(endLoading());
+
+    return response;
   }
 );

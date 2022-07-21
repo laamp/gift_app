@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import currentStateReducer from 'modules/currentState';
+import uiReducer from 'modules/ui';
 import sessionReducer from 'modules/session';
 
 const rootReducer = combineReducers({
-  currentState: currentStateReducer,
+  ui: uiReducer,
   session: sessionReducer,
 });
 

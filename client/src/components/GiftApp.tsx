@@ -1,10 +1,11 @@
 import React, { useState, FormEvent } from 'react';
 
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { loginAction } from 'modules/session';
 
 const GiftApp = () => {
   const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.ui.loading);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,6 +35,7 @@ const GiftApp = () => {
         />
         <button type='submit'>Log in</button>
       </form>
+      <div>{loading ? 'app is loading...' : 'app is not loading'}</div>
     </div>
   );
 };

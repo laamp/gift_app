@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface CurrentState {
+interface Ui {
   loading: boolean;
 }
 
-const initialState: CurrentState = {
+const initialState: Ui = {
   loading: false,
 };
 
-const currentStateSlice = createSlice({
-  name: 'currentState',
+const uiSlice = createSlice({
+  name: 'ui',
   initialState,
   reducers: {
     startLoading: (state) => {
@@ -21,6 +21,6 @@ const currentStateSlice = createSlice({
   },
 });
 
-export const { startLoading, endLoading } = currentStateSlice.actions;
+export const { startLoading, endLoading } = uiSlice.actions;
 
-export default currentStateSlice.reducer;
+export default uiSlice.reducer;

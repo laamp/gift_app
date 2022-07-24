@@ -5,13 +5,11 @@ import { loginAction } from './actions';
 interface SessionState {
   email: string;
   token: string;
-  loading: boolean;
 }
 
 const initialState: SessionState = {
   email: '',
   token: '',
-  loading: false,
 };
 
 const sessionSlice = createSlice({
@@ -19,18 +17,11 @@ const sessionSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(loginAction.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(loginAction.fulfilled, (state, action) => {
-        state.loading = false;
-        state.email = action.payload.data.email;
-        state.token = action.payload.data.token;
-      })
-      .addCase(loginAction.rejected, (state) => {
-        state.loading = false;
-      });
+    builder.addCase(loginAction.fulfilled, (state, action) => {
+      const { email, token } = action.payload.data;
+      state.email = email;
+      state.token = token;
+    });
   },
 });
 

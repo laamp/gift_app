@@ -13,3 +13,10 @@
 1. bundle install
 1. yarn install
 1. foreman start
+
+### Running Postgres with WSL2
+
+1. sudo mkdir -p /run/postgresql
+1. sudo chown -R postgres:postgres /run/postgresql
+1. sudo -iu postgres
+1. pg_ctl -D /var/lib/postgres/data start
